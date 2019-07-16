@@ -6,7 +6,7 @@
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 09:01:25 by kmodise           #+#    #+#             */
-/*   Updated: 2019/07/16 09:28:18 by kmodise          ###   ########.fr       */
+/*   Updated: 2019/07/16 11:08:24 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ int     main(int argc, char *argv[])
 
 	ls = (char *)malloc(sizeof(char) * 2);
 	ls = "ls";
+	if (argc == 2)
+	{
+		lst(argv[1]);
+	}
 	if (argc == 1)
 		lst(".");
 	return (0);
