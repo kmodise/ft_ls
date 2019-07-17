@@ -6,7 +6,7 @@
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 08:20:51 by kmodise           #+#    #+#             */
-/*   Updated: 2019/07/15 15:49:36 by kmodise          ###   ########.fr       */
+/*   Updated: 2019/07/17 11:33:17 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include "libft/libft.h"
 # include <dirent.h>
 
+int		lst_a(const	char *filename);
 int		lst(const char *filename);
 #endif

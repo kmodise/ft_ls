@@ -6,7 +6,7 @@
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 09:01:25 by kmodise           #+#    #+#             */
-/*   Updated: 2019/07/16 11:08:24 by kmodise          ###   ########.fr       */
+/*   Updated: 2019/07/17 15:13:30 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 int     main(int argc, char *argv[])
 {
-	char    *ls;
 
-	ls = (char *)malloc(sizeof(char) * 2);
-	ls = "ls";
-	if (argc == 2)
+	if ((argv[1][0] == '-') && (argv[1][1] == 'a') && (argc >= 2))
+	{
+		lst_a(".");
+	}
+	else if (argc == 2)
 	{
 		lst(argv[1]);
 	}
-	if (argc == 1)
+	else
 		lst(".");
 	return (0);
 }
