@@ -6,16 +6,19 @@
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 09:01:25 by kmodise           #+#    #+#             */
-/*   Updated: 2019/07/17 15:13:30 by kmodise          ###   ########.fr       */
+/*   Updated: 2019/07/21 14:59:05 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int     main(int argc, char *argv[])
+int		main(int argc, char *argv[])
 {
-
-	if ((argv[1][0] == '-') && (argv[1][1] == 'a') && (argc >= 2))
+	if (argc == 1)
+		lst(".");
+	else if ((argv[1][0] == '-') && (argv[1][1] == 'l'))
+		lst_l(".");
+	else if ((argv[1][0] == '-') && (argv[1][1] == 'a'))
 	{
 		lst_a(".");
 	}
@@ -23,7 +26,5 @@ int     main(int argc, char *argv[])
 	{
 		lst(argv[1]);
 	}
-	else
-		lst(".");
 	return (0);
 }
