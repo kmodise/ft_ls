@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   list_other.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/15 08:20:51 by kmodise           #+#    #+#             */
-/*   Updated: 2019/07/22 15:14:46 by kmodise          ###   ########.fr       */
+/*   Created: 2019/07/22 13:50:43 by kmodise           #+#    #+#             */
+/*   Updated: 2019/07/22 15:10:08 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
+#include "ft_ls.h"
+#include <grp.h>
+void				user_id(struct stat buff)
+{
+	struct passwd	*pwd;
+    struct group    *gr;
 
-# include "libft/libft.h"
-# include <sys/stat.h>
-# include <dirent.h>
-# include <sys/dir.h>
-# include <pwd.h>
-# include <sys/types.h>
-# include <uuid/uuid.h>
+    gr = getgrgid(buff.st_gid);
+	pwd = getpwuid(buff.st_uid);
+	ft_putchar(' ');
+	ft_putstr((char *)pwd->pw_name);
+    ft_putchar(' ');
+    ft_putstr((char *)gr->gr_name);
+}
 
-int			lst_a(const	char *filename);
-int			lst(const char *filename);
-int			lst_l(const char *filename);
-int		    other(struct stat buff);
-#endif
+int                 other(struct stat buff)
+{
+    user_id(buff);
+    return (0);
+}
