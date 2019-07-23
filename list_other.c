@@ -12,17 +12,48 @@
 
 #include "ft_ls.h"
 #include <grp.h>
+#include <time.h>
+
+void                tme(char *s)
+{
+    int             i;
+    char            *str;
+    int             k;
+
+    k = 0;
+    str = (char *)malloc(sizeof(char) * 12);
+    i = 0;
+    while (s[i] != '\0')
+    {
+        if (i > 3 && i < 16)
+        {
+            str[k] = s[i];
+            k++;
+        }
+        i++;
+    }
+    str[k] = '\0';
+    ft_putstr(str);
+}
+
 void				user_id(struct stat buff)
 {
 	struct passwd	*pwd;
     struct group    *gr;
+    char            *s;
 
+    s = (char *)malloc(sizeof(char) * 20);
+    s = ctime(&buff.st_mtime);
     gr = getgrgid(buff.st_gid);
 	pwd = getpwuid(buff.st_uid);
-	ft_putchar(' ');
+	ft_putchar('\t');
 	ft_putstr((char *)pwd->pw_name);
-    ft_putchar(' ');
+    ft_putchar('\t');
     ft_putstr((char *)gr->gr_name);
+    ft_putchar('\t');
+    ft_putnbr(buff.st_size);
+    ft_putchar('\t');
+    tme(s);
 }
 
 int                 other(struct stat buff)

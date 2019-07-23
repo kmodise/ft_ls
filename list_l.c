@@ -74,10 +74,10 @@ static void			file_data(char *file, struct stat buff)
 	ft_putstr(perm_usr);
 	ft_putstr(perm_grp);
 	ft_putstr(perm_other);
-	ft_putchar(' ');
+	ft_putchar('\t');
 	ft_putnbr((buff.st_nlink));
 	other(buff);
-	ft_putchar(' ');
+	ft_putchar('\t');
 	ft_putstr(file);
 }
 
