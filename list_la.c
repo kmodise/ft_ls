@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   list_la.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/16 09:01:25 by kmodise           #+#    #+#             */
-/*   Updated: 2019/07/21 14:59:05 by kmodise          ###   ########.fr       */
+/*   Created: 2019/07/23 13:12:28 by kmodise           #+#    #+#             */
+/*   Updated: 2019/07/23 14:00:12 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		main(int argc, char *argv[])
+int					lst_la(const char *filename)
 {
-	if (argc == 1)
-		lst(".");
-	else if ((argv[1][0] == '-') && (argv[1][1] == 'l') && (argv[1][2] == 'a'))
+	DIR				*dir;
+	struct stat		buff;
+	struct dirent	*sd;
+	char			**files;
+	int				i;
+
+	i = 0;
+	files = (char **)malloc(sizeof(char) * 4294967295);
+	dir = opendir(filename);
+	if (dir == NULL)
+		return (-1);
+	while ((sd = readdir(dir)) != NULL)
+		files[i++] = sd->d_name;
+	files[i] = NULL;
+	i = 0;
+	while (stat(files[i], &buff) != -1)
 	{
-		lst_la(".");
-	}
-	else if ((argv[1][0] == '-') && (argv[1][1] == 'l'))
-		lst_l(".");
-	else if ((argv[1][0] == '-') && (argv[1][1] == 'a'))
-	{
-		lst_a(".");
-	}
-	
-	else if (argc == 2)
-	{
-		lst(argv[1]);
+		file_data(files[i], buff);
+		ft_putchar('\n');
+		i++;
 	}
 	return (0);
 }
