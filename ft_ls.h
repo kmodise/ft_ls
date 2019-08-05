@@ -6,7 +6,7 @@
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 08:20:51 by kmodise           #+#    #+#             */
-/*   Updated: 2019/07/23 13:52:43 by kmodise          ###   ########.fr       */
+/*   Updated: 2019/08/02 14:49:32 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@
 # include <pwd.h>
 # include <sys/types.h>
 # include <uuid/uuid.h>
-# include <time.h>
 # include <grp.h>
+# include <time.h>
 
-int			lst_a(const	char *filename);
-int			lst(const char *filename);
-int			lst_l(const char *filename);
-int			lst_la(const char *filename);
+int			lst(const char *filename, char f, char sort);
+int			lst_l(const char *filename, char f);
 int			other(struct stat buff);
 void		file_data(char *file, struct stat buff);
+void		alpha_sort(char **file);
+void		tme_sort(char **file);
+void		rev_sort(char **file);
+void        lst_r(const char *dirname);
+void        print(char **files);
 #endif

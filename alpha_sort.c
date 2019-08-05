@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   alpha_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/27 10:02:56 by kmodise           #+#    #+#             */
-/*   Updated: 2019/06/02 17:06:24 by kmodise          ###   ########.fr       */
+/*   Created: 2019/07/26 13:45:14 by kmodise           #+#    #+#             */
+/*   Updated: 2019/07/26 14:26:49 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_ls.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void		alpha_sort(char **file)
 {
-	unsigned char	*store_s;
-	size_t			goku;
-	unsigned char	store_c;
+	int		i;
+	int		k;
+	char	*temp;
 
-	store_c = (unsigned char)c;
-	goku = 0;
-	store_s = (unsigned char *)s;
-	while (goku < n)
+	temp = (char *)malloc(sizeof(char) * 255);
+	i = 0;
+	while (file[i] != NULL)
 	{
-		if (store_s[goku] == store_c)
+		k = i + 1;
+		while (file[k] != NULL)
 		{
-			return ((char *)s + goku);
+			if (ft_strcmp(file[i], file[k]) > 0)
+			{
+				ft_strcpy(temp, file[i]);
+				ft_strcpy(file[i], file[k]);
+				ft_strcpy(file[k], temp);
+			}
+			k++;
 		}
-		goku++;
+		i++;
 	}
-	return (NULL);
+	free(temp);
 }
