@@ -6,7 +6,7 @@
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 09:01:25 by kmodise           #+#    #+#             */
-/*   Updated: 2019/08/05 09:33:10 by kmodise          ###   ########.fr       */
+/*   Updated: 2019/08/05 10:45:31 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ void	file_input(char **argv)
 
 int		main(int argc, char *argv[])
 {
-	if (argc == 2)
-		lst_r(argv[1]);//lst(argv[1], '\0', '\0');
-	/*if (argc == 1)
+	if (argc == 1)
 		lst(".", '\0', '\0');
 	else if (argc == 2 && argv[1][0] == '-')
 		norm(argv);
@@ -59,7 +57,7 @@ int		main(int argc, char *argv[])
 	else if (argc == 3)
 		file_input(argv);
 	else
-		ft_putstr(argv[1]);*/
+		ft_putstr(argv[1]);
 }
 	/*if (argc == 1)
 		lst(".", 'k');
