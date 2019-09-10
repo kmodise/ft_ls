@@ -21,5 +21,5 @@ This project was done following the following rules : 1. File must have a maximu
                                                                                          3. Function must have a maximum of 5 variables;
                                                                                          4. NO memory leaks
                                                                                          5. You have to use your own library(libft)
-                                                                                         6. a load more rule                                                                                      
+                                                                                         6. a load more rules!!!!                                                                                   
     I could go on and fix it and make it better, but I have more projects that I have to do and time doesn't like me<sad face emoji>
