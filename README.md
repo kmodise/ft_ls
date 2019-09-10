@@ -1,14 +1,14 @@
 # ft_ls
 about : ft_ls is a BASIC recreation of the unix command "ls" using C
 
-can do 👍 : ~ls -l
-                    ~ls -a
-                    ~ls -r
-                    ~ls -R
-                    ~ls
-                    ~ls (multiple directories)
-                    ~ls -l (multiple files)
-                    ~ls -a -l / ls -a -r etc.
+can do 👍 : [~ls -l]
+            [~ls -a]
+            [~ls -r]
+                    [~ls -R]
+                    [~ls]
+                    [~ls (multiple directories)]
+                    [~ls -l (multiple files)]
+                    [[~ls -a -l] / [ls -a -r] etc.]
 ft_ls can only combine 2 flags at a time, the '-R' flag however still needs work, and can't be combined with any other flags.
 
 can't do 👎 :    combine more than 2 flags
