@@ -6,7 +6,7 @@
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 08:20:51 by kmodise           #+#    #+#             */
-/*   Updated: 2019/08/02 14:49:32 by kmodise          ###   ########.fr       */
+/*   Updated: 2019/09/01 10:32:04 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,27 @@
 # include <grp.h>
 # include <time.h>
 
-int			lst(const char *filename, char f, char sort);
-int			lst_l(const char *filename, char f);
-int			other(struct stat buff);
+void		lst(const char *filename, char flag, char sort, char k);
+int			lst_l(char **files, char f);
+int			more_data(struct stat buff);
 void		file_data(char *file, struct stat buff);
 void		alpha_sort(char **file);
 void		tme_sort(char **file);
 void		rev_sort(char **file);
-void        lst_r(const char *dirname);
-void        print(char **files);
+void		lst_r(const char *dirname);
+void		print(char **files);
+void		fr_l(char k, char **files);
+void		error(const char *filename);
+int			is_dir(char *file);
+void		multi_flags(char **argv);
+void		fatality(char *argv, char flag, char sort, char display);
+int			regfile(const char *filename);
+void		other_stuff(char **files, const char *filename, char flag, char k);
+void		option_display(char **files, char f);
+void		null_or_not_alowed(const char *filename);
+void		cant_handle(char *file);
+void		illegal_option(char *argv);
+void		lst_extention(int i, DIR *dir, char **files);
+char		*path(char *filename, char *dir_name);
+
 #endif

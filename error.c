@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   alpha_sort.c                                       :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmodise <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/26 13:45:14 by kmodise           #+#    #+#             */
-/*   Updated: 2019/07/26 14:26:49 by kmodise          ###   ########.fr       */
+/*   Created: 2019/08/31 12:56:54 by kmodise           #+#    #+#             */
+/*   Updated: 2019/08/31 15:49:20 by kmodise          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void		alpha_sort(char **file)
+void				null_or_not_alowed(const char *filename)
 {
-	int		i;
-	int		k;
-	char	*temp;
+	ft_putstr("can't open \"");
+	ft_putstr((char *)filename);
+	ft_putendl("\", doesn't exist or not permitted");
+	exit(1);
+}
 
-	temp = (char *)malloc(sizeof(char *) * 255);
-	i = 0;
-	while (file[i] != NULL)
-	{
-		k = i + 1;
-		while (file[k] != NULL)
-		{
-			if (ft_strcmp(file[i], file[k]) > 0)
-			{
-				ft_strcpy(temp, file[i]);
-				ft_strcpy(file[i], file[k]);
-				ft_strcpy(file[k], temp);
-			}
-			k++;
-		}
-		i++;
-	}
-	free(temp);
+void				cant_handle(char *file)
+{
+	lst(file, 'l', '\0', '0');
+	ft_putendl("ft_ls can't handle this operation");
+}
+
+void				illegal_option(char *argv)
+{
+	ft_putstr(argv);
+	ft_putendl(" not supported options[altr]");
+	exit(1);
 }
